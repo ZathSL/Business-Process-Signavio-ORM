@@ -1,0 +1,52 @@
+Il progetto riguarda la modellazione di dati e processi
+riguardo al dominio dei voli aerei. 
+Lo schema concettuale e la base information viene modellata
+usando lo strumento NORMA.
+A partire da alcuni esempi di biglietti aerei si sono
+modellate le informazioni rilevanti per la prenotazione e 
+accesso all'aereomobile. 
+Sono presenti due entità rilevanti: Reference individuabile 
+tramite un codice e il volo riferito tramite anch'esso un
+codice. 
+Dal numero del biglietto (reference) riferiamo alle informazioni
+riguardanti il biglietto del passeggero con un nome e cognome,
+un numero di sequenza unico per ogni biglietto riferito al volo,
+una modalità di accedere alla coda per l'imbarco, e una modalità
+di accesso all'aeromobile tramite la porta anteriore o posteriore.
+Ogni biglietto, inoltre, ha un posto a sedere e una tipologia
+di bagagli che è possibile imbarcare. 
+Il biglietto, come già detto, è collegato a uno e un solo numero
+di volo. Il volo ha una città di partenza e una città di arrivo,
+con la data e orario in cui si svolge il volo. Il
+numero del volo contiene a sua volta il gate in cui
+è possibile svolgere l'imbarco e l'ora di chiusura
+del gate che risulta essere 30 minuti prima dell'ora di partenza
+effettiva.
+Allo schema concettuale sono associati una base information da cui 
+si è modellato lo schema concettuale.
+
+La modellazione dei processi viene eseguito con lo strumento SIGNAVIO.
+La modellazione è incentrata sui passi che il cliente deve eseguire
+per poter prenotare un biglietto e accedere all'aeromobile. 
+
+Il processo del cliente parte con l'intenzione di acquistare un biglietto 
+per partire, per fare ciò effettua la prenotazione che consiste nella
+scelta della partenza, destinazione e data. Invia i dati al sistema di prenotazione
+della compagnia, il quale può non rispondere e se non lo fa la prenotazione va in errore
+e termina il processo. Altrimenti, risponde e può essere una risposta negativa e il processo
+termina oppure risponde positivamente, può selezionare il volo, inserire i dati e manda
+una richiesta per bloccare il posto per eseguire l'acquisto. Quindi, esegue il pagamento, 
+arriva una conferma della prenotazione e termina il processo di prenotazione con successo.
+Il processo continua con due attività da svolgere in parallelo: si dirige all'aeroporto di partenza
+ed effettua il check-in del volo.
+Il check-in consiste nell'accedere al sito della compagnia, selezionare il biglietto per cui si 
+desidera efffettuare il check-in e mandare una richiesta di check-in, il sistema che si 
+occuppa di gestire i check-in può rispondere con un errore oppure con il check-in eseguito con successo.
+Se il cliente ha una valigia da consegnare, consegna la valigia di stiva oppure se non la ha si dirige
+direttamente ai controlli di sicurezza. Se durante i controlli non si è presentato alcun problema, 
+il cliente prosegue con effettuare la fila d'imbarco che potrebbe essere effettuata più volte nel 
+caso in cui il volo subisce ritardi. Il processo termina con il cliente che entra nell'aeromobile.
+Durante l'esecuzione di tutte le attività potrebbe esserci un evento di modifica volo, in cui il cliente
+riceve un messaggio in cui il volo può essere stato cancellato e in questo caso, ritira la valigia
+dal check-in se l'aveva già consegnata e sceglie una meta alternativa al volo. Altrimenti, se il messaggio
+contiene una notifica di volo in ritardo, il cliente può rimettersi nella fila d'imbarco appena possibile.
